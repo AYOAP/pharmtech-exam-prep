@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+    --app-bg: #f6f7f2;
+    --app-bg-dark: #0f172a;
+    --panel: rgba(255, 255, 255, 0.84);
+    --panel-dark: rgba(15, 23, 42, 0.8);
+    --border: rgba(15, 23, 42, 0.08);
+    --border-dark: rgba(255, 255, 255, 0.08);
+    --text: #101827;
+    --muted: #4b5563;
+    --text-dark: #eff6ff;
+    --muted-dark: #cbd5e1;
+  }
+
+  * {
+    @apply border-slate-200;
+  }
+
+  body {
+    @apply min-h-screen bg-stone-50 font-sans text-slate-900 antialiased;
+    background-image:
+      radial-gradient(circle at top left, rgba(14, 165, 233, 0.12), transparent 24rem),
+      radial-gradient(circle at top right, rgba(245, 158, 11, 0.12), transparent 20rem),
+      linear-gradient(180deg, #f9faf5 0%, #f4f6ef 100%);
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      @apply bg-slate-950 text-slate-50;
+      background-image:
+        radial-gradient(circle at top left, rgba(14, 165, 233, 0.14), transparent 30rem),
+        radial-gradient(circle at top right, rgba(245, 158, 11, 0.12), transparent 24rem),
+        linear-gradient(180deg, #020617 0%, #0f172a 100%);
+    }
+
+    * {
+      @apply border-slate-800;
+    }
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply border border-white/40 bg-white/75 shadow-panel backdrop-blur-xl;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .glass-panel {
+      @apply border-white/10 bg-slate-900/70;
+    }
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-enter {
+    animation: enter 240ms ease-out;
+  }
+
+  .animate-float {
+    animation: float 4.8s ease-in-out infinite;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 1.6s ease-in-out infinite;
+  }
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}

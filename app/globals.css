@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --bg: #fff8fc;
+    --panel: rgba(255, 255, 255, 0.82);
+    --panel-strong: rgba(255, 255, 255, 0.94);
+    --line: rgba(126, 19, 75, 0.1);
+    --text: #3a1130;
+    --muted: #7a5671;
+    --success: #17b26a;
+    --warning: #ff8e53;
+    --danger: #ef476f;
+  }
+
+  * {
+    @apply border-rosebrand-100;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-shell font-sans text-plum-950 antialiased;
+    background-image:
+      radial-gradient(circle at top left, rgba(255, 102, 178, 0.2), transparent 24rem),
+      radial-gradient(circle at top right, rgba(255, 182, 146, 0.18), transparent 24rem),
+      linear-gradient(180deg, #fff8fc 0%, #fff4f8 46%, #fff0f6 100%);
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    @apply outline-none;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply rounded-[28px] border border-white/70 bg-white/80 shadow-card backdrop-blur-xl;
+  }
+
+  .glass-panel-strong {
+    @apply rounded-[28px] border border-rosebrand-100 bg-white/95 shadow-card;
+  }
+
+  .section-shell {
+    @apply glass-panel p-5 sm:p-6 lg:p-7;
+  }
+
+  .metric-card {
+    @apply rounded-[24px] border border-rosebrand-100/80 bg-white/90 p-4 shadow-card;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-rosebrand-200 bg-rosebrand-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-rosebrand-700;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
